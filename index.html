@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Pagamento via Pix</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #0a0f2c; /* azul escuro */
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-top: 30px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+
+    .btn-pix {
+      background: #00cc66;
+      color: white;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(0,255,100,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-pix:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(0,255,100,0.7);
+    }
+
+    /* Selo de segurança */
+    .selo {
+      display: block;
+      margin: 20px auto;
+      max-width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,255,100,0.3);
+    }
+
+    /* Modal Pix */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+    }
+
+    .modal-content {
+      background: #1e1e1e;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 0 20px rgba(0,255,100,0.5);
+    }
+
+    .close {
+      color: red;
+      font-size: 20px;
+      cursor: pointer;
+      float: right;
+    }
+
+    .pix-key {
+      background: #333;
+      padding: 10px;
+      border-radius: 6px;
+      margin: 15px 0;
+      font-size: 16px;
+    }
+
+    /* Container botão + imagem */
+    .payment-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .product-img {
+      max-width: 150px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,255,100,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .product-img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px rgba(0,255,100,0.7);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔥 Garanta seu produto agora!</h1>
+  <p>📲 Pague via Pix em segundos e receba imediatamente!</p>
+
+  <!-- Botão + imagem lado a lado -->
+  <div class="payment-container">
+    <button class="btn-pix" onclick="openModal()">💳 Pagar com Pix Agora</button>
+  </div>
+
+  <!-- Selo de segurança abaixo -->
+  <img src="622bb2622bbd96e31cda9a60b2904dfb.jpg" alt="Selo de Segurança" class="selo">
+
+  <!-- Modal Pix -->
+  <div id="pixModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>Pagamento via Pix</h2>
+      <p>Use a chave Pix abaixo:</p>
+      <div class="pix-key">SEU-EMAIL@PIX.COM</div>
+      <p>Ou escaneie o QR Code:</p>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=SEU-EMAIL@PIX.COM" alt="QR Code Pix">
+      <p>⚡ Após o pagamento, você receberá acesso imediato!</p>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById("pixModal").style.display = "block";
+    }
+    function closeModal() {
+      document.getElementById("pixModal").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
